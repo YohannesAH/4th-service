@@ -14,8 +14,11 @@ speech_config.speech_synthesis_voice_name = 'en-US-JennyNeural'
 
 speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
 
-@app.route('/synthesize', methods=['POST'])
+@app.route('/synthesize', methods=['GET', 'POST'])
 def synthesize_text():
+    if request.method == 'GET':
+        return "GET request is supported. Use a POST request to synthesize text."
+
     text = request.json.get('text')
 
     speech_synthesis_result = speech_synthesizer.speak_text_async(text).get()
