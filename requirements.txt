@@ -12,6 +12,6 @@ requests==2.31.0
 urllib3==2.0.2
 Werkzeug==2.3.4
 flask
-azure-cognitiveservices-speech
+azure-cognitiveservices-speech==1.17.0
 requests
 
